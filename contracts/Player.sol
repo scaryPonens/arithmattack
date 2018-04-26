@@ -11,9 +11,9 @@ contract Player {
 
     PlayerState public playerState;
 
-    function Player() public {
-        playerState.coins = 0;
-        playerState.lives = 3;
+    constructor() public {
+        playerAddress = msg.sender;
+        gameOver();
     }
 
     function score(uint points) public returns (uint) {
