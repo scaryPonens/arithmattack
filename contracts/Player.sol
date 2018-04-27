@@ -4,8 +4,8 @@ pragma solidity ^0.4.22;
 contract Player {
     address playerAddress;
     struct PlayerState {
-        uint coins;
-        uint lives;
+        uint16 coins;
+        uint16 lives;
         string[] upgrades;
     }
 
@@ -16,12 +16,12 @@ contract Player {
         gameOver();
     }
 
-    function score(uint points) public returns (uint) {
+    function score(uint16 points) public returns (uint16) {
         playerState.coins += points;
         return playerState.coins;
     }
 
-    function die() public returns (uint) {
+    function die() public returns (uint16) {
         playerState.lives -= 1;
         if (playerState.lives <= 0) {
             gameOver();
@@ -34,11 +34,11 @@ contract Player {
         playerState.lives = 3;
     }
 
-    function getCoins() public view returns (uint) {
+    function getCoins() public view returns (uint16) {
         return playerState.coins;
     }
 
-    function getLives() public view returns (uint) {
+    function getLives() public view returns (uint16) {
         return playerState.lives;
     }
 }
